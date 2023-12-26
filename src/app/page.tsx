@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import libraryImage from "../../public/images/library.jpg";
 import nextLogo from "../../public/images/next-logo.svg";
@@ -16,7 +15,7 @@ export default function Home() {
             authors
           </h2>
           <p>
-            Looking for a book but don't know the name of the book? No Problem!
+            Looking for a book but don`t know the name of the book? No Problem!
             Find books by the author name or publisher
           </p>
           <Link href="/search">
