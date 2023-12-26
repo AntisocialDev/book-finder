@@ -5,7 +5,7 @@ import loadIcon from "../../../public/images/loader.gif";
 import Image from "next/image";
 import Link from "next/link";
 
-export async function getBooks(param: string | undefined) {
+ async function getBooks(param: string | undefined) {
   const bookList = await fetch(
     "https://www.googleapis.com/books/v1/volumes?" +
       new URLSearchParams({
