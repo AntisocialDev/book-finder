@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import searchIcon from "../../../public/images/search.png";
 import loadIcon from "../../../public/images/loader.gif";
 import Image from "next/image";
 import Link from "next/link";
 
- async function getBooks(param: string | undefined) {
+async function getBooks(param: string | undefined) {
   const bookList = await fetch(
     "https://www.googleapis.com/books/v1/volumes?" +
       new URLSearchParams({
@@ -36,6 +36,7 @@ export default function SearchPage() {
       throw new Error("An error occured");
     }
   };
+
   const [bookParam, setBookParam] = useState<string>("");
   return (
     <div className="mt-[150px] flex self-center flex-col items-center justify-center">
@@ -81,9 +82,7 @@ export default function SearchPage() {
           {bookList &&
             bookList.map((book: any, index: number) => (
               <Link href={`/search/book/${book.id}`} key={book.id}>
-                <div
-                  className="flex flex-col p-y-10 sm:flex-row border-gray-50 border  min-h-[350px] max-h-[1000px] md:h-[350px] bg-white shadow-lg w-full md:text-[12px] md:w-[280px] lg:text-[14px] lg:w-[380px] cursor-pointer rounded-sm"
-                >
+                <div className="flex flex-col p-y-10 sm:flex-row border-gray-50 border  min-h-[350px] max-h-[1000px] md:h-[350px] bg-white shadow-lg w-full md:text-[12px] md:w-[280px] lg:text-[14px] lg:w-[380px] cursor-pointer rounded-sm">
                   <Image
                     className="object-fill w-full h-[180px] sm:h-full sm:w-[150px] md:w-[100px]"
                     src={book.volumeInfo.imageLinks?.smallThumbnail}

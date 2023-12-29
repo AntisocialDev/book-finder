@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+
 const roboto = Roboto({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
@@ -19,11 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        <main className={roboto.className + " py-5 px-5 sm:px-20"}>
-          {children}
-        </main>
-        <Footer />
+          <Navbar />
+          <main className={roboto.className + " py-5 px-5 sm:px-20"}>
+            {children}
+          </main>
+          <Footer />
       </body>
     </html>
   );
